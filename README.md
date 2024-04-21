@@ -9,13 +9,15 @@ Requirements
     JSON library (for handling JSON data)
     Time library (for adding delays)
     The gcui-art/suno-api up and running
+    pygame for GUI (under development)
 
 Setup
 
   Install Python if not already installed. You can download it from here.
-  Install the Requests library using pip:
+  Install the Requests library and pygame using pip:
 
     pip install requests
+    pip install pygame
 
 Usage
 
