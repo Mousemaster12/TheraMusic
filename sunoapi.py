@@ -35,8 +35,8 @@ if __name__ == '__main__':
 
     # Cloudflare AI model details
     model = "@cf/meta/llama-2-7b-chat-int8"
-    ID = "bdeec1ca2606bf703bdbea35c03445e6"
-    KEY = "g_HTKCSaRI3__BSlGGeQf5TR_ZgZ4yWi5u8BDxti"
+    ID = "REPLACEWITHID"
+    KEY = "REPLACEWITHKEY"
 
     # Request to Cloudflare AI to process user input
     response = requests.post(
