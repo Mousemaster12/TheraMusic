@@ -1,14 +1,14 @@
 Theramusic Python Script
 Overview
 
-This Python script interacts with the unofficial gcui/suno-api API and Cloudflare AI to generate therapeutic music based on user input. It utilizes different functions to communicate with the server and Cloudflare AI, generating audio based on user-provided mood or emotion.
+This Python script interacts with the unofficial gcui-art/suno-api API and Cloudflare AI to generate therapeutic music based on user input. It utilizes different functions to communicate with the server and Cloudflare AI, generating audio based on user-provided mood or emotion.
 Requirements
 
     Python 3.x
     Requests library (for making HTTP requests)
     JSON library (for handling JSON data)
     Time library (for adding delays)
-    The gcui/suno-api up and running
+    The gcui-art/suno-api up and running
 
 Setup
 
