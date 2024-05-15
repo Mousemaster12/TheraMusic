@@ -1,16 +1,15 @@
 import pygame
 from pygame.locals import (KEYDOWN, QUIT, K_ESCAPE)
 import webbrowser
-import os
+
 import gui_bases
 import sunoapi
 
 SCREEN_WIDTH = 1500
 SCREEN_HEIGHT = 750
-SCREEN_BG_COLOR = (255, 255, 254)
-SCREEN_BG = pygame.image.load(os.path.join(os.path.dirname(__file__), 'backround.jpg'))
-background = pygame.transform.scale(SCREEN_BG, (SCREEN_WIDTH, SCREEN_HEIGHT))
-FONT = "Roboto"
+SCREEN_BG_COLOR = (255, 255, 255)
+BG_IMAGE = pygame.transform.scale(pygame.image.load("background_image.jpeg"), (SCREEN_WIDTH, SCREEN_HEIGHT))
+FONT = "Calibri"
 
 
 # Init pygame.
@@ -41,7 +40,7 @@ def input_screen(sender):
         pass
     question = gui_bases.TextBox(300, 50, 1100, 100, SCREEN_BG_COLOR, False,
                                  "ספרו לנו איך מצבכם היום בעקבות המלחמה:")
-    input_box = gui_bases.TextBox(200, 150, 1100, 400, (200, 200, 200), True)
+    input_box = gui_bases.TextBox(200, 150, 1100, 400, (255, 225, 200), True)
     send_button = gui_bases.Button(600, 600, "סיימתי")
     send_button.method = send_to_api
     text_boxes = [question, input_box]
@@ -53,10 +52,10 @@ def input_screen(sender):
 def result_screen(link1, link2):
     done_message = gui_bases.TextBox(500, 100, 600, 100, SCREEN_BG_COLOR, False,
                                      "האזינו לשירים שלכם: ")
-    link_button_1 = gui_bases.Button(800, 300, "Link to 1")
-    link_button_2 = gui_bases.Button(400, 300, "Link to 2")
-    link_to_suno = gui_bases.Button(550, 500, "Suno.com")
-#   link_to_suno.width = 400
+    link_button_1 = gui_bases.Button(800, 300, "קישור ל־1")
+    link_button_2 = gui_bases.Button(400, 300, "לקישור ל־2")
+    link_to_suno = gui_bases.Button(550, 500, "קישור לאתר Suno")
+    link_to_suno.width = 400
     link_button_1.info_included = link1
     link_button_2.info_included = link2
     link_to_suno.info_included = "https://suno.com/"
@@ -70,7 +69,7 @@ def result_screen(link1, link2):
 def run(screen, text_boxes, buttons):
     running = True
     while running:
-        screen.blit(background, (0,0))
+        screen.blit(BG_IMAGE, (0, 0))
         mouse = pygame.mouse.get_pos()
         gui_bases.blit_text_boxes(screen, text_boxes)
         gui_bases.show_buttons(screen, buttons, mouse)

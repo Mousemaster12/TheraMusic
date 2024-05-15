@@ -17,9 +17,10 @@ class Button:
         self.height = 100
         self.text = text
         self.text_color = (0, 0, 0)
-        self.color = (100, 200, 225)
-        self.hoverColor = (150, 250, 255)
+        self.color = (200, 125, 200)
+        self.hoverColor = (250, 175, 250)
         self.size = 60
+        self.round = 10
         self.method = 0
         self.info_included = ''
 
@@ -40,14 +41,16 @@ class TextBox:
         self.is_input_box = is_input_box
 
 
-# Blit every Button and handles hovering.
+# Blit every Button and handle hovering.
 def show_buttons(screen, buttons, mouse):
     for button in buttons:
         if (button.x <= mouse[0] <= button.x + button.width and
                 button.y <= mouse[1] <= button.y + button.height):
-            pygame.draw.rect(screen, button.hoverColor, [button.x, button.y, button.width, button.height])
+            pygame.draw.rect(screen, button.hoverColor, [button.x, button.y, button.width, button.height],
+                             border_radius=button.round)
         else:
-            pygame.draw.rect(screen, button.color, [button.x, button.y, button.width, button.height])
+            pygame.draw.rect(screen, button.color, [button.x, button.y, button.width, button.height],
+                             border_radius=button.round)
         text = pygame.font.SysFont(FONT, button.size).render(correct_rtl(button.text), True, button.text_color)
         screen.blit(text, (button.x + (button.width - text.get_width()) / 2,
                            button.y + (button.height - text.get_height()) / 2))
@@ -96,7 +99,7 @@ def blit_text_boxes(screen, boxes):
         font = pygame.font.SysFont(FONT, box.size)
         text_surface = auto_newline(correct_rtl(box.text), box, font)
         if box.color != SCREEN_BG_COLOR:
-           pygame.draw.rect(screen, box.color, box.rect)
+            pygame.draw.rect(screen, box.color, box.rect)
         # text_surface.reverse()
         for line_index in range(len(text_surface)):
             # screen.blit(text_surface[line_index], (box.x, (box.y + ((box.height - get_list_heights(text_surface)) +
