@@ -39,10 +39,10 @@ def input_screen(sender):
     if sender.text == "להתחיל":
         pass
     question = gui_bases.TextBox(300, 50, 1100, 100, SCREEN_BG_COLOR, False,
-                                 "ספרו לנו איך מצבכם היום בעקבות המלחמה:")
-    question.text_color = (255, 255, 255)  # Change text color to white
+                                 "   ספרו לנו איך מצבכם היום בעקבות המלחמה:")
+    question.text_color = (20, 170, 170)  # Change text color to white
     input_box = gui_bases.TextBox(200, 150, 1100, 400, (255, 225, 200), True)
-    input_box.text_color = (255, 255, 255)  # Change text color to white
+    input_box.text_color = (255, 150, 193)  # Change text color to white
     send_button = gui_bases.Button(600, 600, "סיימתי")
     send_button.method = send_to_api
     send_button.text_color = (255, 255, 255)  # Change text color to white
@@ -55,11 +55,11 @@ def result_screen(link1, link2):
     done_message = gui_bases.TextBox(500, 100, 600, 100, SCREEN_BG_COLOR, False,
                                      "האזינו לשירים שלכם: ")
     done_message.text_color = (255, 255, 255)  # Change text color to white
-    link_button_1 = gui_bases.Button(800, 300, "קישור ל־1")
+    link_button_1 = gui_bases.Button(800, 300, "Link 1")
     link_button_1.text_color = (255, 255, 255)  # Change text color to white
-    link_button_2 = gui_bases.Button(400, 300, "לקישור ל־2")
+    link_button_2 = gui_bases.Button(400, 300, "Link 2")
     link_button_2.text_color = (255, 255, 255)  # Change text color to white
-    link_to_suno = gui_bases.Button(550, 500, "קישור לאתר Suno")
+    link_to_suno = gui_bases.Button(550, 500, "Suno.com")
     link_to_suno.width = 400
     link_to_suno.text_color = (255, 255, 255)  # Change text color to white
     link_button_1.info_included = link1

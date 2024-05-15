@@ -64,10 +64,10 @@ def main(user_input):
 
     # Convert response to JSON
     inference = response.json()
-    print(inference)
-    print(inference['result']['response'])
+    #print(inference['result']['response'])
     cloudflare_output = str(inference)
-
+    trimmed_output = cloudflare_output[25:-50]
+    print(trimmed_output)
     # Generate audio based on Cloudflare AI output
     data = generate_audio_by_prompt({
         "prompt": cloudflare_output,
