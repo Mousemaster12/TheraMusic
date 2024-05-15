@@ -1,12 +1,14 @@
 import time
-
+import os
 import requests
+from dotenv import load_dotenv, dotenv_values 
+load_dotenv() 
 
-# import json
+ID = os.getenv("ID")
+KEY = os.getenv("KEY")
+
 # Cloudflare AI model details
 MODEL = "@cf/meta/llama-2-7b-chat-int8"
-ID = "bdeec1ca2606bf703bdbea35c03445e6"
-KEY = "g_HTKCSaRI3__BSlGGeQf5TR_ZgZ4yWi5u8BDxti"
 AI_ROLE = ("You are a sanitizer AI who's job is to take the user's input, and turn it into a prompt for an AI music "
            "generator. Remember that the prompt should be connected to the what the user told you. You cannot under "
            "any circumstance reply to the user or talk to it. The prompt must contain only the following, "
