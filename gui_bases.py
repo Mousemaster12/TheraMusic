@@ -51,7 +51,8 @@ def show_buttons(screen, buttons, mouse):
         else:
             pygame.draw.rect(screen, button.color, [button.x, button.y, button.width, button.height],
                              border_radius=button.round)
-        text = pygame.font.SysFont(FONT, button.size).render(correct_rtl(button.text), True, button.text_color)
+        font = pygame.font.SysFont(FONT, button.size, bold=True)  # Use bold font
+        text = font.render(correct_rtl(button.text), True, button.text_color)
         screen.blit(text, (button.x + (button.width - text.get_width()) / 2,
                            button.y + (button.height - text.get_height()) / 2))
 
@@ -96,24 +97,12 @@ def auto_newline(text, box, font):
 # Blit every text box.
 def blit_text_boxes(screen, boxes):
     for box in boxes:
-        font = pygame.font.SysFont(FONT, box.size)
+        font = pygame.font.SysFont(FONT, box.size, bold=True)  # Use bold font
         text_surface = auto_newline(correct_rtl(box.text), box, font)
         if box.color != SCREEN_BG_COLOR:
             pygame.draw.rect(screen, box.color, box.rect)
-        # text_surface.reverse()
         for line_index in range(len(text_surface)):
-            # screen.blit(text_surface[line_index], (box.x, (box.y + ((box.height - get_list_heights(text_surface)) +
-            #                                                (text_surface[line_index].get_height() * line_index) / 2)
-            #                                        // len(text_surface))))
             screen.blit(text_surface[line_index], (box.x, box.y + text_surface[line_index].get_height() * line_index))
-
-
-# Sums up the height of a surfaces list.
-def get_list_heights(surfaces):
-    height = 0
-    for surface in surfaces:
-        height += surface.get_height()
-    return height
 
 
 # PyGame flips rtl text (such as "םולש"), this fixes it.
