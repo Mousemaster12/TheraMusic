@@ -16,7 +16,7 @@ class Button:
         self.width = 300
         self.height = 100
         self.text = text
-        self.text_color = (0, 0, 0)
+        self.text_color = (255, 255, 255)  # White text color
         self.color = (200, 125, 200)
         self.hoverColor = (250, 175, 250)
         self.size = 60
@@ -36,7 +36,7 @@ class TextBox:
         self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
         self.color = color
         self.text = text
-        self.text_color = (0, 0, 0)
+        self.text_color = (255, 255, 255)  # White text color
         self.size = 60
         self.is_input_box = is_input_box
 
@@ -52,7 +52,7 @@ def show_buttons(screen, buttons, mouse):
             pygame.draw.rect(screen, button.color, [button.x, button.y, button.width, button.height],
                              border_radius=button.round)
         font = pygame.font.SysFont(FONT, button.size, bold=True)  # Use bold font
-        text = font.render(correct_rtl(button.text), True, button.text_color)
+        text = font.render(correct_rtl(button.text), True, button.text_color)  # Use button's text color
         screen.blit(text, (button.x + (button.width - text.get_width()) / 2,
                            button.y + (button.height - text.get_height()) / 2))
 
