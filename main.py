@@ -1,14 +1,15 @@
 import pygame
 from pygame.locals import (KEYDOWN, QUIT, K_ESCAPE)
 import webbrowser
-
+import os
 import gui_bases
 import sunoapi
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 SCREEN_WIDTH = 1500
 SCREEN_HEIGHT = 750
 SCREEN_BG_COLOR = (255, 255, 255)
-BG_IMAGE = pygame.transform.scale(pygame.image.load("background_image.jpeg"), (SCREEN_WIDTH, SCREEN_HEIGHT))
+BG_IMAGE = pygame.transform.scale(pygame.image.load('backround_image.jpeg'), (SCREEN_WIDTH, SCREEN_HEIGHT))
 FONT = "Calibri"
 
 
