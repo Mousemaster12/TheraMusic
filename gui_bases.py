@@ -51,7 +51,7 @@ def show_buttons(screen, buttons, mouse):
         else:
             pygame.draw.rect(screen, button.color, [button.x, button.y, button.width, button.height],
                              border_radius=button.round)
-        font = pygame.font.SysFont(FONT, button.size, bold=True)  # Use bold font
+        font = pygame.font.SysFont(FONT, button.size)
         text = font.render(correct_rtl(button.text), True, button.text_color)  # Use button's text color
         screen.blit(text, (button.x + (button.width - text.get_width()) / 2,
                            button.y + (button.height - text.get_height()) / 2))
@@ -97,7 +97,7 @@ def auto_newline(text, box, font):
 # Blit every text box.
 def blit_text_boxes(screen, boxes):
     for box in boxes:
-        font = pygame.font.SysFont(FONT, box.size, bold=True)  # Use bold font
+        font = pygame.font.SysFont(FONT, box.size)
         text_surface = auto_newline(correct_rtl(box.text), box, font)
         if box.color != SCREEN_BG_COLOR:
             pygame.draw.rect(screen, box.color, box.rect)
