@@ -40,7 +40,7 @@ def input_screen(sender):
         pass
     question = gui_bases.TextBox(300, 50, 1100, 100, SCREEN_BG_COLOR, False,
                                  "ספרו לנו איך מצבכם היום בעקבות המלחמה:")
-    question.text_color = (20, 170, 170)  # Change text color to white
+    #question.text_color = (20, 170, 170)  # Change text color to white
     input_box = gui_bases.TextBox(200, 150, 1100, 400, (255, 225, 200), True)
     input_box.text_color = (255, 150, 193)  # Change text color to white
     send_button = gui_bases.Button(600, 600, "סיימתי")
